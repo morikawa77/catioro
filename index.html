@@ -20,23 +20,20 @@
   <body>
     <div id="app" >
         <transition>
-          <img v-show="isLoad" :src="catioro" @load="loaded">
+          <img v-if="catioro" :src="catioro">
         </transition>
-        <div v-show="!isLoad" class="loading">Loading...</div>
     </div>
     <script type="text/javascript">
       var app = new Vue({
         el: '#app',
         data: {
-          catioro: '',
-          isLoad: false
+          catioro: ''
         },
         created(){
           this.getCatioro()
         },
         methods:{
           getCatioro: function() {
-            this.isLoad = false
             fetch('https://dog.ceo/api/breeds/image/random')
               .then(
                 function(response) {
@@ -56,9 +53,6 @@
               .catch(function(err) {
                 console.log('Fetch Error :-S', err);
               });
-          },
-          loaded() {
-            this.isLoad = true
           }
         }
       })
