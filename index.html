@@ -31,6 +31,9 @@
           catioro: '',
           isLoad: false
         },
+        created(){
+          this.getCatioro()
+        },
         methods:{
           getCatioro: function() {
             this.isLoad = false
@@ -57,9 +60,6 @@
           loaded() {
             this.isLoad = true
           }
-        },
-        created(){
-          this.getCatioro()
         }
       })
     </script>
