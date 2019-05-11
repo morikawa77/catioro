@@ -1,0 +1,58 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+p {
+  margin: 10px;
+}
+#app {
+  width: 100vw;
+  text-align: center;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  margin: 20px;
+}
+button {
+  margin: 20px 0;
+}
+.catioros {
+  width:100%;
+  text-align: center;
+}
+.catioro {
+  margin: 10px;
+}
+.cropped {
+  object-fit:cover;
+  object-position: center;
+  height: 450px;
+  width: 450px;
+}
+ul {
+  padding: 0;
+  list-style: none;
+  color: #fff;
+  border-radius: 5px;
+  /* background-color: #a1a1a1; */
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+li {
+  display: inline;
+  margin: 10px;
+}
+li span {
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  li {
+    display: inline-block;
+    margin: 10px 5px;
+  }
+  .cropped {
+    height: 320px;
+    width: 320px;
+  }
+}

@@ -34,6 +34,7 @@
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <!-- Load Vue followed by BootstrapVue -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
@@ -41,64 +42,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="vue-social-sharing.js"></script>
     <style>
-      body {
-        background-color: #000;
-        color: #fff;
-      }
-      p {
-        margin: 10px;
-      }
-      #app {
-        width: 100vw;
-        text-align: center;
-      }
-      h1 {
-        font-family: 'Pacifico', cursive;
-        margin: 20px;
-      }
-      button {
-        margin: 20px 0;
-      }
-      .catioros {
-        width:100%;
-        text-align: center;
-      }
-      .catioro {
-        margin: 10px;
-      }
-      .cropped {
-        object-fit:cover;
-        object-position: center;
-        height: 450px;
-        width: 450px;
-      }
-      ul {
-        padding: 0;
-        list-style: none;
-        color: #fff;
-        border-radius: 5px;
-        /* background-color: #a1a1a1; */
-        width: 80%;
-        text-align: center;
-        margin: 0 auto;
-      }
-      li {
-        display: inline;
-        margin: 10px;
-      }
-      li span {
-        cursor: pointer;
-      }
-      @media only screen and (max-width: 768px) {
-        li {
-          display: inline-block;
-          margin: 10px 5px;
-        }
-        .cropped {
-          height: 320px;
-          width: 320px;
-        }
-      }
+
     </style>
     <title>Random Catioros</title>
   </head>
@@ -182,38 +126,7 @@
       <b-button size="lg" v-on:click="getCatioroAndScrollTop" class="loadMore">Carregar outros catioros</b-button><br>
       <small>Desenvolvido por <a href="https://wolfandpartners.com.br" target="_blank">Reginaldo Morikawa</a> <br> Thanks to: <a href="https://github.com/mayconeves" target="_blank">@mayconeves</a> - <a target="_blank" href="https://dog.ceo/dog-api/">Dog API</a> - <a target="_blank" href="https://github.com/nicolasbeauvais/vue-social-sharing">Vue Social Sharing</a></small><br><br>
     </div>
-
-    <script type="text/javascript">
-      Vue.use(SocialSharing);
-      var app = new Vue({
-        el: '#app',
-        data () {
-          return {
-              catioros: null
-          }
-        },
-        methods:{
-          getCatioro: function() {
-            axios.get('https://dog.ceo/api/breeds/image/random/30')
-                 .then(response => (this.catioros = response.data.message))
-                 .catch(function (error) {
-                   // handle error
-                   console.log(error);
-                 })
-          },
-          scrollToTop() {
-                window.scrollTo(0,0);
-           },
-           getCatioroAndScrollTop() {
-             this.getCatioro();
-             this.scrollToTop();
-           }
-        },
-        mounted(){
-          this.getCatioro()
-        }
-      })
-    </script>
+    <script src="app.js"></script>
   </body>
 
 </html>
