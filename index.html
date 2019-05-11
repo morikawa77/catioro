@@ -10,14 +10,16 @@
   <body>
 
     <div id="app" style="width: 100vw; height: 100vh;">
-      {{catioro}}
+
       <section v-if="errored">
         <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
       </section>
       <section v-else>
         <div v-if="loading">Loading...</div>
         <!-- <div v-else v-for="catioro in catioros" :key="catioro"> -->
+        <div v-else>
           <img :src="catioro">
+        </div>
         <!-- </div> -->
       </section>
     </div>
