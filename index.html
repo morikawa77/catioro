@@ -16,11 +16,12 @@
       </section>
       <section v-else>
         <div v-if="loading">Loading...</div>
-        <!-- <div v-else v-for="catioro in catioros" :key="catioro"> -->
-        <div v-else>
-          <img :src="catioro">
+        {{catioros}}
+        <div v-else v-for="catioro in catioros" :key="catioro">
+        <!-- <div v-else> -->
+          <!-- <img :src='catioro'> -->
+          {{catioro}}
         </div>
-        <!-- </div> -->
       </section>
     </div>
 
@@ -30,19 +31,21 @@
         el: '#app',
         data: {
           catioros: null,
-          catioro: '',
+          // catioro: '',
           loading: true,
           errored: false
         },
         methods:{
           getCatioro: function() {
             axios
-            .get('https://dog.ceo/api/breeds/image/random/')
+            //.get('https://dog.ceo/api/breeds/image/random')
+            .get('https://dog.ceo/api/breeds/image/random/30')
             .then(function (response) {
               // handle success
-              // this.catioros = response.data
-              this.catioro = response.data.message
-              console.log(this.catioro)
+              this.catioros = response.data
+              //this.catioro = response.data.message
+              console.log(this.catioros)
+              this.loading = true
             })
             .catch(function (error) {
               // handle error
