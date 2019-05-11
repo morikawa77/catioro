@@ -2,25 +2,49 @@
 <html lang="pt-br" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <!-- Facebook -->
+    <meta property="og:title" content="Random Catioro">
+    <meta property="og:description" content="Random Catioro Pics">
+    <meta property="og:image" content="https://morikawa77.github.io/catioro/thumbnail.jpg">
+    <meta property="og:url" content="https://morikawa77.github.io/catioro/">
+    <meta property="og:site_name" content="catioro, cachorro, cachorros, cao, caozinho, dog, dogs">
+    <!-- Twitter -->
+    <meta name="twitter:title" content="Random Catioro">
+    <meta name="twitter:description" content="Random Catioro Pics">
+    <meta name="twitter:image" content="https://morikawa77.github.io/catioro/thumbnail.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Random Catioro">
     <!-- Load required Bootstrap and BootstrapVue CSS -->
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <!-- Load Vue followed by BootstrapVue -->
     <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
     <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <script src="vue-social-sharing.js"></script>
     <style>
+      body {
+        background-color: #000;
+        color: #fff;
+      }
+      p {
+        margin: 10px;
+      }
       #app {
         width: 100vw;
         text-align: center;
       }
-      .loadMore {
+      h1 {
+        font-family: 'Pacifico', cursive;
+        margin: 20px;
+      }
+      button {
         margin: 20px 0;
       }
-      .container {
+      .catioros {
         width:100%;
         text-align: center;
       }
@@ -30,24 +54,126 @@
       .cropped {
         object-fit:cover;
         object-position: center;
-        height: 250px;
+        height: 450px;
         width: 450px;
       }
+      ul {
+        padding: 0;
+        list-style: none;
+        color: #fff;
+        border-radius: 5px;
+        /* background-color: #a1a1a1; */
+        width: 80%;
+        text-align: left;
+        margin: 0 auto;
+      }
+      li {
+        display: inline;
+        margin: 10px;
+      }
+      @media only screen and (max-width: 768px) {
+        ul {
+          text-align: center;
+        }
+        li {
+          display: inline-block;
+          margin: 10px 5px;
+        }
+        .cropped {
+          height: 320px;
+          width: 320px;
+        }
+      }
     </style>
-    <title>Catioro</title>
+    <title>Random Catioros</title>
   </head>
   <body>
 
     <div id="app">
-      <button v-on:click="getCatioro" class="loadMore">Carregar outros catioros</button>
-      <div class="container">
+      <h1>Random Catioro</h1>
+      <social-sharing url="https://morikawa77.github.io/catioro/"
+                    title="Random Catioros"
+                    description="Random Catioros Pics"
+                    quote="Random Catioros"
+                    hashtags="catioro, cachorro, cachorros, cao, caozinho, dog, dogs"
+                    twitter-user="morikawa77"
+                    v-cloak inline-template>
+      <div>
+        <p>Compartilhe os Catioros:</p>
+        <ul>
+          <li>
+            <network network="email" id="email">
+              <i class="fa fa-fw fa-envelope"></i> Email
+            </network>
+          </li>
+          <li>
+            <network network="facebook" id="facebook">
+              <i class="fa fa-fw fa-facebook"></i> Facebook
+            </network>
+          </li>
+          <li>
+            <network network="googleplus" id="googleplus">
+              <i class="fa fa-fw fa-google-plus"></i> Google +
+            </network>
+          </li>
+          <li>
+            <network network="linkedin" id="linkedin">
+              <i class="fa fa-fw fa-linkedin"></i> LinkedIn
+            </network>
+          </li>
+          <li>
+            <network network="pinterest" id="pinterest">
+              <i class="fa fa-fw fa-pinterest"></i> Pinterest
+            </network>
+          </li>
+          <li>
+            <network network="reddit" id="reddit">
+              <i class="fa fa-fw fa-reddit"></i> Reddit
+            </network>
+          </li>
+          <li>
+            <network network="twitter" id="twitter">
+              <i class="fa fa-fw fa-twitter"></i> Twitter
+            </network>
+          </li>
+          <li>
+            <network network="viber" id="viber">
+              <i class="fa fa-fw fa-phone-square"></i> Viber
+            </network>
+          </li>
+          <li>
+            <network network="vk" id="vk">
+              <i class="fa fa-fw fa-vk"></i> VKontakte
+            </network>
+          </li>
+          <li>
+            <network network="weibo" id="weibo">
+              <i class="fa fa-fw fa-weibo"></i> Weibo
+            </network>
+          </li>
+          <li>
+            <network network="whatsapp" id="whatsapp">
+              <i class="fa fa-fw fa-whatsapp"></i> Whatsapp
+            </network>
+          </li>
+          <li>
+            <network network="telegram" id="telegram">
+              <i class="fa fa-fw fa-telegram"></i> Telegram
+            </network>
+          </li>
+        </ul>
+      </div>
+    </social-sharing>
+      <div class="catioros">
         <div v-for="catioro in catioros" :key="catioro" class="d-inline-block catioro">
           <img :src='catioro' class='cropped'>
         </div>
       </div>
+      <b-button size="lg" v-on:click="getCatioroAndScrollTop" class="loadMore">Carregar outros catioros</b-button>
     </div>
 
     <script type="text/javascript">
+      Vue.use(SocialSharing);
       var app = new Vue({
         el: '#app',
         data () {
@@ -63,7 +189,14 @@
                    // handle error
                    console.log(error);
                  })
-          }
+          },
+          scrollToTop() {
+                window.scrollTo(0,0);
+           },
+           getCatioroAndScrollTop() {
+             this.getCatioro();
+             this.scrollToTop();
+           }
         },
         mounted(){
           this.getCatioro()
