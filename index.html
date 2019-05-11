@@ -180,7 +180,7 @@
     </social-sharing>
       <div class="catioros">
         <div v-for="catioro in catioros" :key="catioro" class="d-inline-block catioro">
-          <img :src='catioro' class='cropped'>
+          <img :src='catioro' class='cropped' alt="Catioro" title="Catioro">
         </div>
       </div>
       <b-button size="lg" v-on:click="getCatioroAndScrollTop" class="loadMore">Carregar outros catioros</b-button>
