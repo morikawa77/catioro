@@ -6,25 +6,24 @@ p {
   margin: 10px;
 }
 #app {
-  width: 100vw;
   text-align: center;
 }
 h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   margin: 20px;
 }
 button {
   margin: 20px 0;
 }
 .catioros {
-  width:100%;
+  width: 100%;
   text-align: center;
 }
 .catioro {
   margin: 10px;
 }
 .cropped {
-  object-fit:cover;
+  object-fit: cover;
   object-position: center;
   height: 450px;
   width: 450px;
